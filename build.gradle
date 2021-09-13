@@ -14,9 +14,11 @@ repositories {
 micronaut {
     runtime("netty")
     testRuntime("spock2")
+    testRuntime("junit5")
     processing {
         incremental(true)
         annotations("mironaut.kafka.streams.spock.*")
+        annotations("mironaut.kafka.streams.tests.*")
     }
 }
 
@@ -32,6 +34,8 @@ dependencies {
 
     implementation("org.testcontainers:kafka:")
     implementation("org.testcontainers:spock:")
+
+    testImplementation 'org.awaitility:awaitility:4.1.0'
 }
 
 
